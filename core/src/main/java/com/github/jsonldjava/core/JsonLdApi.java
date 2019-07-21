@@ -920,15 +920,17 @@ public class JsonLdApi {
             if (result.containsKey(JsonLdConsts.VALUE)) {
                 // 8.1)
                 // TODO: is this method faster than just using containsKey for
-                // each?
-                final Set<String> keySet = new HashSet<>(result.keySet());
-                keySet.remove(JsonLdConsts.VALUE);
-                keySet.remove(JsonLdConsts.INDEX);
-                final boolean langremoved = keySet.remove(JsonLdConsts.LANGUAGE);
-                final boolean typeremoved = keySet.remove(JsonLdConsts.TYPE);
-                if ((langremoved && typeremoved) || !keySet.isEmpty()) {
-                    throw new JsonLdError(Error.INVALID_VALUE_OBJECT,
-                            "value object has unknown keys");
+                //
+                if (!opts.getIgnoreErrors()) {
+                    final Set<String> keySet = new HashSet<>(result.keySet());
+                    keySet.remove(JsonLdConsts.VALUE);
+                    keySet.remove(JsonLdConsts.INDEX);
+                    final boolean langremoved = keySet.remove(JsonLdConsts.LANGUAGE);
+                    final boolean typeremoved = keySet.remove(JsonLdConsts.TYPE);
+                    if ((langremoved && typeremoved) || !keySet.isEmpty()) {
+                        throw new JsonLdError(Error.INVALID_VALUE_OBJECT,
+                                "value object has unknown keys");
+                    }
                 }
                 // 8.2)
                 final Object rval = result.get(JsonLdConsts.VALUE);
@@ -945,11 +947,13 @@ public class JsonLdApi {
                 // 8.4)
                 else if (result.containsKey(JsonLdConsts.TYPE)) {
                     // TODO: is this enough for "is an IRI"
-                    if (!(result.get(JsonLdConsts.TYPE) instanceof String)
+                    if (!opts.getIgnoreErrors()) {
+                        if (!(result.get(JsonLdConsts.TYPE) instanceof String)
                             || ((String) result.get(JsonLdConsts.TYPE)).startsWith("_:")
                             || !((String) result.get(JsonLdConsts.TYPE)).contains(":")) {
-                        throw new JsonLdError(Error.INVALID_TYPED_VALUE,
+                            throw new JsonLdError(Error.INVALID_TYPED_VALUE,
                                 "value of @type must be an IRI");
+                        }
                     }
                 }
             }

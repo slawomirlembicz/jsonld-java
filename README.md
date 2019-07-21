@@ -16,7 +16,7 @@ From Maven
     <dependency>
         <groupId>com.github.jsonld-java</groupId>
         <artifactId>jsonld-java</artifactId>
-        <version>0.12.4</version>
+        <version>0.12.4-IGNORE_ERRORS</version>
     </dependency>
 
 Code example
@@ -323,7 +323,7 @@ Here is the basic outline for what your module's pom.xml should look like
   <parent>
     <groupId>com.github.jsonld-java</groupId>
     <artifactId>jsonld-java-parent</artifactId>
-    <version>0.12.4</version>
+    <version>0.12.4-IGNORE_ERRORS</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jsonld-java-{your module}</artifactId>
