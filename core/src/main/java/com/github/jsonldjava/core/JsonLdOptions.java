@@ -102,7 +102,7 @@ public class JsonLdOptions {
     private Boolean pruneBlankNodeIdentifiers = false;
     private Boolean requireAll = false;
     private Boolean allowContainerSetOnType = false;
-
+    private Boolean ignoreErrors = false;
     // RDF conversion options :
     // http://www.w3.org/TR/json-ld-api/#serialize-rdf-as-json-ld-algorithm
 
@@ -292,6 +292,14 @@ public class JsonLdOptions {
 
     public void setDocumentLoader(DocumentLoader documentLoader) {
         this.documentLoader = documentLoader;
+    }
+
+    public Boolean getIgnoreErrors() {
+        return ignoreErrors;
+    }
+
+    public void setIgnoreErrors(Boolean ignoreErrors) {
+        this.ignoreErrors = ignoreErrors;
     }
 
     // TODO: THE FOLLOWING ONLY EXIST SO I DON'T HAVE TO DELETE A LOT OF CODE,

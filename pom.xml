@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jsonld-java</groupId>
 	<artifactId>jsonld-java-parent</artifactId>
-	<version>0.12.5-SNAPSHOT</version>
+	<version>0.12.4-IGNORE_ERRORS</version>
 	<name>JSONLD Java :: Parent</name>
 	<description>Json-LD Java Parent POM</description>
 	<packaging>pom</packaging>
@@ -41,7 +41,7 @@
 
 		<httpclient.version>4.5.8</httpclient.version>
 		<httpcore.version>4.4.11</httpcore.version>
-		<jackson.version>2.9.9</jackson.version>
+		<jackson.version>2.9.8</jackson.version>
 		<junit.version>4.12</junit.version>
 		<slf4j.version>1.7.26</slf4j.version>
 
