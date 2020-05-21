@@ -16,7 +16,7 @@ From Maven
     <dependency>
         <groupId>com.github.jsonld-java</groupId>
         <artifactId>jsonld-java</artifactId>
-        <version>0.13.0</version>
+        <version>0.13.0-IGNORE_ERRORS</version>
     </dependency>
 
 Code example
